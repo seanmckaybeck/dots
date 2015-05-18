@@ -1,0 +1,78 @@
+# given a certain dirctory count the number of files in it
+function countfiles {
+    if [[ -z $1 ]]
+    then
+        echo "There are `ls . | wc -l` files in this directory"
+    else
+        echo "There are `ls $1 | wc -l` files in $1"
+    fi
+}
+
+# given a certain process name check if it is running
+function isrunning {
+    if [[ -z $1 ]]
+    then
+        echo "You didn't specify a target process name"
+    else
+        ps aux | grep $1
+    fi
+}
+
+# start up my standard tmux sessions based on name provided (iff session hasn't been created yet)
+function starttmux {
+    if [[ -z $1 ]]
+    then
+        echo "Starting normal tmux session with no special setup"
+        sleep 2
+        tmux new -d
+        tmux ls
+    elif [[ $1 == "dev" ]]
+    then
+        echo "Starting a typical session of dev if it doesn't exist"
+        sleep 2
+        tmux a -t dev || 
+        tmux \
+            new -s dev -d \; \
+            send-keys 'htop' C-m \; \
+            neww -n vim \; \
+            neww -n cmdline \; \
+            neww -n splits \; \
+            neww -n irssi \; \
+            split-window -t dev:3 -v \; \
+            neww -n twitter \; \
+            split-window -t twitter -v \; \
+            selectw -t twitter \; \
+            send-keys 't stream timeline -l' 'C-m' \; \
+            selectw -t irssi \; \
+            send-keys 'irssi' 'C-m' \; \
+            send-keys '/nicklist fifo' 'C-m' \; \
+            a -t dev
+    elif [[ $1 == "notes" ]]
+    then
+        echo "Starting a typical notes session if it doesn't exist"
+        sleep 2
+        tmux a -t notes ||
+        tmux \
+            new -s notes -d \; \
+            send-keys 'cd ~/Documents' C-m \; \
+            neww -n cmdline \; \
+            selectw -t dev:0 \; \
+            a -t notes
+    else
+        echo "That doesn't describe any defined sessions foo, so you get a normal session with that name"
+        sleep 2
+        tmux a -t $1 || tmux new -s $1
+    fi
+}
+
+sprunge() {
+    curl -F 'sprunge=<-' http://sprunge.us
+}
+
+ix() {
+    curl -F 'f:1=<-' ix.io
+}
+
+ptpb() {
+    curl -F c=@- https://ptpb.pw
+}

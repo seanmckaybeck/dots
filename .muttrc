@@ -1,0 +1,13 @@
+source "~/.mutt/account.yahoo
+
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+set move = no
+set mail_check=120
+set sort='threads'
+set sort_aux='last-date-received'
+
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail<enter><change-folder>!<enter>'
+macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/account.yahoo<enter><change-folder>!<enter>'

@@ -1,0 +1,23 @@
+min_peers = 999
+max_peers = 999
+min_peers_seed = 999
+max_peers_seed = 999
+max_uploads = 20
+download_rate = 0
+upload_rate = 0
+
+directory = ~/downloads
+session = ~/.rtorrent.session
+port_range = 49164-49164
+
+schedule = watch_directory,5,5,load_start=~/downloads/*.torrent
+
+encryption = allow_incoming,try_outgoing,enable_retry
+dht = auto
+dht_port = 6881
+peer_exchange = yes
+
+#color_inactive_fg = 3
+#color_dead_fg = 1
+#color_active_fg = 7
+#color_finished_fg = 2

@@ -1,0 +1,26 @@
+# Zathura configuration file
+
+# Open document in fit-width mode by default
+set adjust-open "width"
+
+# One page per row by default
+set pages-per-row 1
+
+# Appearance
+# set statusbar-padding 17
+set default-bg "#181512"
+set default-fg "#bea492"
+set inputbar-bg "#181512"
+set inputbar-fg "#bea492"
+set statusbar-bg "#181512"
+set statusbar-fg "#bea492"
+set tabbar-bg "#181512"
+set tabbar-fg "#bea492"
+set completion-bg "#181512"
+set completion-fg "#bea492"
+set completion-highlight-bg "#bea492"
+set completion-highlight-fg "#181512"
+set recolor-lightcolor "#181512"
+set recolor-darkcolor "#bea492"
+
+set font "M+ 1m normal 11"
