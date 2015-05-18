@@ -1,0 +1,52 @@
+auto-reload yes
+browser chromium
+cleanup-on-quit yes
+download-path "/home/lains/Downloads/podcasts"
+feed-sort-order title-dec
+max-downloads 4
+notify-always yes
+notify-format "newsbeuter: %n unread articles / %f unread feeds"
+notify-program notify-send
+notify-xterm no
+notify-screen no
+player mplayer
+refresh-on-startup yes
+reload-time 20
+reload-threads 2
+show-keymap-hint false
+history-limit 100
+
+# binds ----------------------------------------------------------------
+
+unbind-key t
+unbind-key R
+bind-key \ reload-all
+bind-key "RIGHT" select-tag
+bind-key "SPACE" open
+
+# hide articles matching: ---------------------------------------------
+
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+ignore-mode "display"
+
+# formatting and colorization ------------------------------------------
+
+articlelist-format "%4i %f %D  %?T?|%-17T| ?%t"
+
+highlight feedlist    "^  *[0-9]+  *N  "                    cyan default
+highlight articlelist "^  *[0-9]+  *N  "                    cyan default
+
+highlight article     "(^Feed:.*|^Title:.*|^Author:.*)"     magenta  default
+highlight article     "(^Link:.*|^Date:.*)"                 magenta  default
+highlight article     "^Podcast Download URL:.*"            cyan   default
+highlight article     "^Links:"                             cyan   default  bold
+highlight article     "\\[[0-9][0-9]*\\]"                   green  default  bold
+highlight article     "\\[image [0-9][0-9]*\\]"             green  default  bold
+highlight article     "\\[embedded flash: [0-9][0-9]*\\]"   green  default  bold
+highlight article     ":.*\\(link\\)$"                      red  default
+highlight article     ":.*\\(image\\)$"                     red  default
+highlight article     ":.*\\(embedded flash\\)$"            red  default
+color listnormal                                            white    default
+color listfocus                                             black  green
+color info                                                  default  blue
