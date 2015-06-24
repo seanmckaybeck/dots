@@ -15,60 +15,64 @@ if !filereadable(vundle_readme)
 endif
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " MY BUNDLES 
 
 " c lang completion
-" Bundle 'Valloric/YouCompleteMe' 
+" Plugin 'Valloric/YouCompleteMe' 
 " python completion
-" Bundle 'davidhalter/jedi-vim' 
+Plugin 'davidhalter/jedi-vim' 
+" supertab!
+Plugin 'ervandew/supertab'
 " git plugin
-Bundle 'tpope/vim-fugitive' 
+Plugin 'tpope/vim-fugitive' 
 " easy comments
-Bundle 'tpope/vim-commentary' 
+Plugin 'tpope/vim-commentary' 
 " easy movement through file. highlights char searched for
-Bundle 'Lokaltog/vim-easymotion' 
+Plugin 'Lokaltog/vim-easymotion' 
 " like pastebin
-"Bundle 'chilicuil/vim-sprunge' 
+"Plugin 'chilicuil/vim-sprunge' 
 " for use with gist-vim
-Bundle 'mattn/webapi-vim' 
+Plugin 'mattn/webapi-vim' 
 " for posting gists
-Bundle 'mattn/gist-vim' 
+Plugin 'mattn/gist-vim' 
 " tabman! easily manage tabs and their panes
-Bundle 'kien/tabman.vim'
+Plugin 'kien/tabman.vim'
 " vimux to ease running cmds quickly
-Bundle 'benmills/vimux'
+Plugin 'benmills/vimux'
 " startify!!!!
-Bundle 'mhinz/vim-startify'
+Plugin 'mhinz/vim-startify'
 " for an awesome statusline
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 " blink search result
-Bundle 'ivyl/vim-bling'
+Plugin 'ivyl/vim-bling'
 " LaTeXBox
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 " NERDTree file explorer
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " distinguished colorscheme
-Bundle 'Lokaltog/vim-distinguished'
+Plugin 'Lokaltog/vim-distinguished'
 " easy surrounding of text
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " how you want . to work, even though it doesn't
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-repeat'
 " java completion
-Bundle 'javacomplete'
+Plugin 'javacomplete'
 " tmux completion
-Bundle 'wellle/tmux-complete.vim'
+Plugin 'wellle/tmux-complete.vim'
 " syntastic (Lint code checking)
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
+
+call vundle#end()
 
 " on fresh install will autorun the bundleinstall command
 if iCanHazVundle == 0
     echo "Installing bundles...ignore key map error message"
     echo ""
-    :BundleInstall
+    :PluginInstall
 endif
 
 filetype plugin indent on
