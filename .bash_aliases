@@ -49,6 +49,7 @@ alias ping='ping -c 5'
 # fi
 
 # git aliases
+alias git=hub
 alias gca='git commit -a'
 alias gs='git status'
 alias gb='git branch'
