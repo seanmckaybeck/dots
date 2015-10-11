@@ -119,12 +119,23 @@ set autoindent
 " take care of line wrapping stuff
 set wrap linebreak nolist
 
+" color column
+set colorcolumn=100
+highlight ColorColumn ctermbg=12
+
+" toggle relativenumber
+function! NumberToggle()
+  set relativenumber!
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
 " key bindings
 :let mapleader = ','
 "map <F2> :sh<CR>
 map <F3> :tabnew 
 map <F7> :wall<CR>
 map <F8> <Plug>Sprunge<CR>
+map <F9> :set paste!
 " set pastetoggle=<F9>
 map <F12> :Gist<CR>
 map <C-o> :NERDTreeToggle<CR>
@@ -270,4 +281,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint2']
+let g:syntastic_python_checkers = ['pylint2', 'pylint']
